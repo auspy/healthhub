@@ -407,12 +407,6 @@ export const fields = {
       type: "number",
     },
     {
-      value: "Exertional_CP_1",
-      label: "Exertional CP 1",
-      defaultValue: 0,
-      type: "number",
-    },
-    {
       value: "LowTH_Ang_0",
       label: "LowTH Ang 0",
       defaultValue: 1,

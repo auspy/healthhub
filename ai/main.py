@@ -43,11 +43,13 @@ def loadKerasModel(imgRes=None):
 
 
 def loadBrainModel2(vals, modelNm):
+  if vals is None:
+      return {"prediction": "No data provided"}
   model = joblib.load(modelNm)
   scaler = joblib.load('scaler.pkl')
-  sample = [[0, 44.0, 0, 0, 1, 2, 0, 110.41, 30.5, 3]]
+  sample = vals
   X_test_std = scaler.transform(sample)
-  print(X_test_std)
+  print(X_test_std,"data in brain model 2")
   res = model.predict(X_test_std)
   print(res)
   if res[0] == 0:
@@ -57,12 +59,14 @@ def loadBrainModel2(vals, modelNm):
   return {"prediction": prediction}
 
 def loadHeartModel2(vals, modelNm):
-  print("running model",modelNm)
+  print("running model",modelNm, vals)
+  if vals is None:
+      return {"prediction": "No data provided"}
   model = joblib.load(modelNm)
-  sample = vals or [[45,1,1876,1,35,0,226000,0.9,138,1,0,88]]
-  print(sample)
+  sample = vals
+  # print(sample,"data in heart model")
   res = model.predict(sample)
-  print(res)
+  print("result",res)
   if res[0] == 0:
     prediction = 'not found'
   else:

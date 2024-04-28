@@ -21513,6 +21513,9 @@ video {
 .w-full {
   width: 100%;
 }
+.min-w-\[260px\] {
+  min-width: 260px;
+}
 .max-w-5xl {
   max-width: 64rem;
 }
@@ -21527,6 +21530,9 @@ video {
 }
 .justify-between {
   justify-content: space-between;
+}
+.gap-2 {
+  gap: 0.5rem;
 }
 .gap-y-1 {
   row-gap: 0.25rem;

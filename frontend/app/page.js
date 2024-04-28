@@ -140,13 +140,14 @@ export default function Home() {
                           <li>
                             Disease Detection Page{" "}
                             <i className="ti-angle-down"></i>
-                            <ul className="submenu">
-                              <Link href="/heart">
-                                {" "}
-                                Heart Disease Detection Page
+                            <ul className="submenu flex min-w-[260px] flex-col gap-2 p-2">
+                              <Link href="/brain1">Brain Tumor</Link>
+                              <Link href="/brain2">Brain Stroke</Link>
+                              <Link href="/heart1">
+                                Coronary Artery Disease
                               </Link>
-                              <Link href="/brain">
-                                Brain Disease Detection Page
+                              <Link href="/heart2">
+                                Congestive Heart Failure
                               </Link>
                             </ul>
                           </li>

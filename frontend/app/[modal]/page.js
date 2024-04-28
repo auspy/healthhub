@@ -8,6 +8,12 @@ export default function Home({ params }) {
   const [prediction, setPrediction] = useState(null);
   const modelName = params.modal?.toString().replace("%20", " ");
   console.log(modelName, "modelname", Object.keys(fds));
+  const headings = {
+    heart1: "Coronary Artery Disease Prediction",
+    heart2: "Congestive Heart Failure Prediction",
+    brain2: "Brain Stroke Prediction",
+    brain1: "Brain Tumor Prediction",
+  };
   // useEffect(() => {
   //   let timer;
   //   if (prediction) {
@@ -49,8 +55,12 @@ export default function Home({ params }) {
       modelName,
       urlCommon + endpoint[modelName],
     );
+    setPrediction(null);
     fetch(urlCommon + endpoint[modelName], {
       method: "POST",
+      next: {
+        revalidate: 1,
+      },
       headers: {
         "Content-Type": "application/json",
       },
@@ -73,7 +83,7 @@ export default function Home({ params }) {
       <p
         className={` text-[24px] uppercase font-semibold mb-5 text-center lg:text-[48px]  text-heading relative z-10 `}
       >
-        {modelName}
+        {modelName && headings[modelName]}
       </p>
       <form id="predictionForm" className="flex flex-col items-center gap-y-3">
         {modelName &&
